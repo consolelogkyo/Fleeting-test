@@ -1,6 +1,7 @@
 import { DataGrid, GridRowsProp } from "@mui/x-data-grid";
 import axios from "axios"
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import './styles.css'
 
 export type List = {
@@ -32,10 +33,15 @@ export function HomePage() {
     getInformations()
   }, []);
 
+  function exitButton() {
+    const navigate = useNavigate();
+    navigate("/")
+  }
+
   const columns: Colunm[] = [
-    { field: 'col1', headerName: 'Name', width: 650 },
-    { field: 'col2', headerName: 'Domains ', width: 400 },
-    { field: 'col3', headerName: 'Web Pages', width: 400 }
+    { field: 'col1', headerName: 'Name', width: 700 },
+    { field: 'col2', headerName: 'Domains ', width: 500 },
+    { field: 'col3', headerName: 'Web Pages', width: 500 },
   ]
 
   const rows: GridRowsProp = lista.map((row) => {
@@ -48,22 +54,27 @@ export function HomePage() {
   })
 
   return (
-    <div>
-      <div className="table-div" style={{ height: 650, width: '90%' }}>
-        <h1 className="h1-table">Universities List</h1>
+    <div className="main-home">
+      <div className="table-div" style={{ height: 500, width: '90%' }}>
+        <h1 className="h1-table">Fleeting Universidades</h1>
+        <div className="exit-button-div">
+          <p className="p-exit">Deseja sair? &nbsp; <a className="a-exit" href="/">Retornar a tela principal.</a></p>
+        </div>
         <DataGrid
           rows={rows}
           columns={columns}
           pageSize={10}
           rowsPerPageOptions={[10]}
           sx={{
-            boxShadow: 2,
-            border: 2,
+            fontSize: 16,
+            color: "#202020",
+            bgcolor: '#f1f1f1',
+            boxShadow: 15,
+            border: 1,
             borderColor: "orange",
             '& .MuiDataGrid-cell:hover': {
-              color: 'orangered'
-            }
-
+              color: 'orange'
+            },
           }}
         />
       </div>

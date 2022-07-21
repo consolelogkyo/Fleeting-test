@@ -1,9 +1,47 @@
+.main-home {
+  width: 100vw;
+  height: 100vh;
+  background: #1646b2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f1f1f1;
+}
+
 .table-div {
   margin: 5rem 4rem 4rem 4rem ;
   position: fixed;
-
+  color:#f1f1f1;
 }
 
 .h1-table {
   margin-bottom: 2rem;
+  justify-content: center;
+  display: flex;
+  color: #f1f1f1;
+  cursor: default;
+  margin: 10px;
+}
+
+.h1-table:hover {
+  color: #e08a18;
+}
+
+.exit-button-div {
+  justify-content: center;
+  display: flex;
+  margin: 10px;
+}
+
+p-exit {
+  margin: 5px;
+  color: white;
+}
+
+a {
+  color: #e08a18;
+}
+
+a:hover {
+  color:#b16c11;
 }

@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import './styles.css'
+import animacaoregistro from '../../assets/animacaoregistro.svg'
 
 type FormData = {
   email: string;
@@ -19,20 +20,31 @@ export function RegisterPage() {
   }
 
   return (
-    <div id="container">
-      <h1 className="h1-register">Universities List</h1>
-      <main>
-        <form>
-          <div className="register-div">
-            <input {...register('email', { required: true })} type="email" name="email" placeholder="E-mail" />
-            <input {...register('password', { required: true })} type="password" name="password" placeholder="Senha" />
-            <div className="button-div">
-              <button onClick={handleSubmit(onSubmit)} className="enter-button-style">Registrar</button>
-            </div>
-            <p>Já possui um cadastro? &nbsp; <a className="a-register" href="/">Voltar ao ínicio</a></p>
+    <div className="main-register">
+      <div className="left-register">
+        <h1>Fleeting Universidades</h1>
+        <p>Sua lista completa aqui.</p>
+        <img src={animacaoregistro} className="left-login-image" alt="Universitária" />
+      </div>
+      <div className="right-register">
+        <div className="card-register">
+          <h1>Criar nova conta!</h1>
+          <div className="textfield-register">
+            <label htmlFor="usuario">Usuário</label>
+            <input {...register('email', { required: true })} type="email" name="email" placeholder="Usuário" />
           </div>
-        </form>
-      </main>
+          <div className="textfield-register">
+            <label htmlFor="usuario">E-mail</label>
+            <input {...register('email', { required: true })} type="email" name="email" placeholder="E-mail" />
+          </div>
+          <div className="textfield-register">
+            <label htmlFor="senha">Senha</label>
+            <input {...register('password', { required: true })} type="password" name="password" placeholder="Senha" />
+          </div>
+          <button onClick={handleSubmit(onSubmit)} className="button-register">Cadastre-se</button>
+          <p className="p-register">Já possui um cadastro? &nbsp; <a href="/">Voltar ao ínicio.</a></p>
+        </div>
+      </div>
     </div>
   )
 }
